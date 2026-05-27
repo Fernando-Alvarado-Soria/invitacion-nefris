@@ -1,13 +1,10 @@
-function scrollToSection(id) {
-  document.getElementById(id).scrollIntoView({
-    behavior: 'smooth'
-  });
-}
-
-const openButton = document.getElementById("openInvitation");
-const envelopeScreen = document.getElementById("envelope-screen");
+// ===== DOM references =====
+const openButton       = document.getElementById("openInvitation");
+const envelopeScreen   = document.getElementById("envelope-screen");
 const invitationContent = document.getElementById("invitation-content");
+const scrollBtn        = document.getElementById("scrollBtn");
 
+// ===== Open envelope =====
 openButton.addEventListener("click", () => {
   envelopeScreen.classList.add("open");
 
@@ -22,39 +19,45 @@ openButton.addEventListener("click", () => {
   }, 2500);
 });
 
-// Contador regresivo
+// ===== Scroll to info section =====
+scrollBtn.addEventListener("click", () => {
+  document.getElementById("info").scrollIntoView({ behavior: "smooth" });
+});
+
+// ===== Countdown =====
+const MS_PER_DAY    = 1000 * 60 * 60 * 24;
+const MS_PER_HOUR   = 1000 * 60 * 60;
+const MS_PER_MINUTE = 1000 * 60;
+const MS_PER_SECOND = 1000;
+
 const eventDate = new Date("June 15, 2026 19:00:00").getTime();
 
 const countdown = setInterval(() => {
-  const now = new Date().getTime();
-  const distance = eventDate - now;
-
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((distance / (1000 * 60)) % 60);
-  const seconds = Math.floor((distance / 1000) % 60);
-
-  document.getElementById("days").textContent = days;
-  document.getElementById("hours").textContent = hours;
-  document.getElementById("minutes").textContent = minutes;
-  document.getElementById("seconds").textContent = seconds;
+  const distance = eventDate - Date.now();
 
   if (distance < 0) {
     clearInterval(countdown);
     document.querySelector(".countdown").innerHTML = "<h3>¡Hoy es el gran día!</h3>";
+    return;
   }
+
+  document.getElementById("days").textContent    = Math.floor(distance / MS_PER_DAY);
+  document.getElementById("hours").textContent   = Math.floor((distance / MS_PER_HOUR) % 24);
+  document.getElementById("minutes").textContent = Math.floor((distance / MS_PER_MINUTE) % 60);
+  document.getElementById("seconds").textContent = Math.floor((distance / MS_PER_SECOND) % 60);
 }, 1000);
 
-// Animación al hacer scroll
-const animatedSections = document.querySelectorAll(".fade-in");
+// ===== Scroll-reveal with IntersectionObserver =====
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
 
-window.addEventListener("scroll", () => {
-  animatedSections.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
-    const screenHeight = window.innerHeight;
-
-    if (sectionTop < screenHeight - 100) {
-      section.classList.add("visible");
-    }
-  });
-});
+document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
