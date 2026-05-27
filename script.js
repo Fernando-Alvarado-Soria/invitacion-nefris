@@ -129,7 +129,7 @@ rsvpConfirm.addEventListener("click", () => {
 
   // Mostrar confirmación y abrir WhatsApp
   const message = encodeURIComponent(
-    `¡Hola! Confirmo mi asistencia a tu cumpleaños.S Soy ${name}`
+    `¡Hola! Confirmo mi asistencia a tu cumpleaños. Soy ${name}`
   );
 
   rsvpSuccess.textContent = `¡Gracias, ${name}! Abriendo WhatsApp...`;
