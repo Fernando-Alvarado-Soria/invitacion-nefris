@@ -30,7 +30,7 @@ const MS_PER_HOUR   = 1000 * 60 * 60;
 const MS_PER_MINUTE = 1000 * 60;
 const MS_PER_SECOND = 1000;
 
-const eventDate = new Date("June 15, 2026 19:00:00").getTime();
+const eventDate = new Date("December 18, 2026 18:00:00").getTime();
 
 const countdown = setInterval(() => {
   const distance = eventDate - Date.now();
@@ -61,3 +61,87 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+
+// ===== RSVP Modal =====
+
+// Reemplaza este valor con la URL de tu Google Apps Script una vez desplegado
+const APPS_SCRIPT_URL = "APPS_SCRIPT_URL_AQUI";
+const WHATSAPP_NUMBER = "527531433836";
+
+const rsvpBtn       = document.getElementById("rsvpBtn");
+const rsvpModal     = document.getElementById("rsvp-modal");
+const modalClose    = document.getElementById("modal-close");
+const modalCancel   = document.getElementById("modal-cancel");
+const rsvpNameInput = document.getElementById("rsvp-name");
+const rsvpConfirm   = document.getElementById("rsvp-confirm");
+const rsvpError     = document.getElementById("rsvp-error");
+const rsvpSuccess   = document.getElementById("rsvp-success");
+
+function openModal() {
+  rsvpModal.classList.remove("hidden");
+  rsvpNameInput.value = "";
+  rsvpError.classList.add("hidden");
+  rsvpSuccess.classList.add("hidden");
+  rsvpConfirm.disabled = false;
+  rsvpConfirm.textContent = "Confirmar ✓";
+  setTimeout(() => rsvpNameInput.focus(), 50);
+}
+
+function closeModal() {
+  rsvpModal.classList.add("hidden");
+}
+
+rsvpBtn.addEventListener("click", openModal);
+modalClose.addEventListener("click", closeModal);
+modalCancel.addEventListener("click", closeModal);
+
+// Cerrar al hacer clic en el fondo oscuro
+rsvpModal.addEventListener("click", (e) => {
+  if (e.target === rsvpModal) closeModal();
+});
+
+// Cerrar con la tecla Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !rsvpModal.classList.contains("hidden")) closeModal();
+});
+
+rsvpConfirm.addEventListener("click", () => {
+  const name = rsvpNameInput.value.trim();
+
+  if (!name) {
+    rsvpError.classList.remove("hidden");
+    rsvpNameInput.focus();
+    return;
+  }
+
+  rsvpError.classList.add("hidden");
+  rsvpConfirm.disabled = true;
+  rsvpConfirm.textContent = "Enviando...";
+
+  // Registrar en Google Sheets (dispara y olvida - no bloquea el flujo)
+  if (APPS_SCRIPT_URL !== "APPS_SCRIPT_URL_AQUI") {
+    fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify({ nombre: name }),
+    }).catch(() => { /* fallo silencioso: WhatsApp abre de todas formas */ });
+  }
+
+  // Mostrar confirmación y abrir WhatsApp
+  const message = encodeURIComponent(
+    `¡Hola! Confirmo mi asistencia a tu cumpleaños.S Soy ${name}`
+  );
+
+  rsvpSuccess.textContent = `¡Gracias, ${name}! Abriendo WhatsApp...`;
+  rsvpSuccess.classList.remove("hidden");
+  rsvpConfirm.textContent = "¡Listo! ✓";
+
+  setTimeout(() => {
+    window.open(
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+    closeModal();
+  }, 1500);
+});

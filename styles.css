@@ -252,6 +252,111 @@ footer {
   transform: translateY(0);
 }
 
+/* ===== RSVP Modal ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: fadeContent 0.25s ease;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 20px;
+  padding: 36px 32px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-box h3 {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+}
+
+.modal-box > p {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+  color: var(--color-text);
+}
+
+.modal-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e8d5d0;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.modal-input:focus {
+  border-color: var(--color-primary);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn--outline:hover {
+  background: var(--color-primary);
+  color: white;
+}
+
+.rsvp-error {
+  color: #e05252;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.rsvp-success {
+  color: #4caf50;
+  font-size: 0.95rem;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 600px) {
   h1 {
@@ -260,5 +365,13 @@ footer {
 
   .countdown {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal-box {
+    padding: 28px 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
   }
 }
