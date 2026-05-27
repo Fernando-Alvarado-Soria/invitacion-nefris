@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Invitación de Cumpleaños</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="envelope-screen" class="envelope-screen">
+  <div class="envelope">
+
+    <!-- Fondo derecho -->
+    <img 
+      class="sobre-derecho"
+      src="img/sobre-derecho.png"
+      alt="Fondo sobre"
+    >
+    <!-- Lado izquierdo -->
+    <img 
+      class="sobre-izquierdo"
+      src="img/sobre-izquierdo.png"
+      alt="Sobre izquierdo"
+    >
+    <!-- Sello -->
+    <button id="openInvitation" class="seal-button">
+      <img src="img/sello.png" alt="Abrir">
+    </button>
+  </div>
+
+</div>
+</div>
+
+<main id="invitation-content" class="hidden">
+    <section class="hero">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+      <p class="subtitle">Estás invitado a celebrar</p>
+      <h1>Mi Cumpleaños</h1>
+      <p class="date">Sábado 15 de junio</p>
+      <button class="btn" onclick="scrollToSection('info')">
+        Ver invitación
+      </button>
+    </div>
+  </section>
+
+  <section id="info" class="section fade-in">
+    <h2>Con mucho cariño</h2>
+    <p>
+      Quiero compartir contigo un día muy especial, lleno de alegría,
+      momentos bonitos y recuerdos inolvidables.
+    </p>
+  </section>
+
+  <section class="section fade-in">
+    <h2>Faltan</h2>
+
+    <div class="countdown">
+      <div>
+        <span id="days">00</span>
+        <p>Días</p>
+      </div>
+      <div>
+        <span id="hours">00</span>
+        <p>Horas</p>
+      </div>
+      <div>
+        <span id="minutes">00</span>
+        <p>Minutos</p>
+      </div>
+      <div>
+        <span id="seconds">00</span>
+        <p>Segundos</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section fade-in">
+    <h2>Detalles del evento</h2>
+    <p><strong>Fecha:</strong> Sábado 15 de junio</p>
+    <p><strong>Hora:</strong> 7:00 p.m.</p>
+    <p><strong>Lugar:</strong> Salón Jardín Real</p>
+
+    <a class="btn" href="#" target="_blank">
+      Ver ubicación
+    </a>
+  </section>
+
+  <section class="section fade-in">
+    <h2>Código de vestimenta</h2>
+    <p>Formal / Elegante</p>
+  </section>
+
+  <section class="section fade-in">
+    <h2>Confirma tu asistencia</h2>
+    <p>Me encantaría saber si podré contar contigo.</p>
+
+    <a class="btn" href="#" target="_blank">
+      Confirmar por WhatsApp
+    </a>
+  </section>
+
+  <footer>
+    <p>Con cariño, gracias por formar parte de este momento especial.</p>
+  </footer><!-- Aquí va TODO el contenido que ya hicimos de la invitación -->
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: #fff7f3;
+  color: #4b2e2e;
+  line-height: 1.6;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+              url('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3')
+              center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+.hero-content {
+  animation: fadeUp 1.5s ease;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.date {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #c98276;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #a85f55;
+  transform: scale(1.05);
+}
+
+.section {
+  padding: 80px 25px;
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #9b5c54;
+}
+
+.section p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.countdown div {
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.countdown span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #c98276;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: #ead3cc;
+  color: #4b2e2e;
+}
+
+.envelope-screen {
+  position: fixed;
+  inset: 0;
+  background: #2f2f2f;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.envelope {
+  position: relative;
+  transition: transform 1.5s ease;
+
+  width: 375px;
+  height: 667px;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+}
+
+/* Fondo derecho */
+
+.sobre-derecho {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 1;
+
+  transition:
+    transform 1.7s ease-in-out,
+    opacity 1.7s ease-in-out;
+}
+/* Sobre izquierdo */
+
+.sobre-izquierdo {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 375px;
+  height: 667px;
+
+  object-fit: contain;
+  object-position: left center;
+
+  z-index: 2;
+
+  transition:
+    transform 1.5s ease,
+    opacity 1.5s ease;
+}
+
+/* Sello */
+
+.seal-button {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-35%, -50%);
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  z-index: 3;
+
+  animation: pulseSeal 1.6s infinite ease-in-out;
+}
+
+.seal-button img {
+  width: 120px;
+  height: auto;
+}
+
+@keyframes pulseSeal {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.envelope-screen.open .seal-button {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.7);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: none;
+}
+
+.envelope-screen.open .envelope-left {
+  transform: translate(-100%, -50%) rotate(-4deg);
+  opacity: 0;
+}
+
+.envelope-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.envelope-screen.open .envelope {
+  transform: scale(1.04);
+}
+
+.hidden {
+  display: none;
+}
+
+.show-content {
+  display: block;
+  animation: fadeContent 1s ease;
+}
+
+/* Animación sello */
+
+@keyframes pulseSeal {
+
+  0% {
+    transform: translate(-35%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-35%, -50%) scale(1.08);
+  }
+
+  100% {
+    transform: translate(-35%, -50%) scale(1);
+  }
+}
+
+/* Abrir sobre */
+
+.envelope-screen.open .seal-button {
+  opacity: 0;
+
+  transition: opacity 0.5s ease;
+
+  animation: none;
+}
+
+/* Animación abrir sobre izquierdo */
+
+.envelope-screen.open .sobre-izquierdo {
+
+  transform: translateX(-120%) rotate(-8deg) scale(1.03);
+  opacity: 0;
+}
+
+/* Animación abrir sobre derecho */
+
+.sobre-derecho {
+
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 1;
+
+  transition:
+    transform 1.6s ease,
+    opacity 1.6s ease;
+}
+
+.envelope-screen.open .sobre-derecho {
+
+  transform: translateX(120%) rotate(6deg) scale(1.03);
+  opacity: 0;
+}
+
+/* Ocultar pantalla */
+
+.envelope-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 1s ease;
+}
+
+/* Invitación */
+
+.hidden {
+  display: none;
+}
+
+.show-content {
+  display: block;
+  animation: fadeContent 1s ease;
+}
+
+
+@keyframes fadeContent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animaciones */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
