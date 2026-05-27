@@ -1,0 +1,3 @@
+# Entorno virtual de Python (usado solo para optimización de imágenes local)
+.venv/
+img/.png
