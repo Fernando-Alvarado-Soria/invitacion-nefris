@@ -33,7 +33,7 @@ body {
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-              url('img/cenicientaFondo.jpg?v=20260528')
+              url('img/cenicientaFondo.webp?v=20260528')
               center/cover no-repeat;
   display: flex;
   align-items: center;
