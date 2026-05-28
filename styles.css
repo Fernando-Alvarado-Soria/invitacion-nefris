@@ -33,7 +33,7 @@ body {
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-              url('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3')
+              url('img/cenicientaFondo.jpg?v=20260528')
               center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -44,12 +44,12 @@ body {
 }
 
 .hero-corona {
-  width: 120px;
-  max-width: 45%;
+  width: 500px;
+  max-width: 60%;
   height: auto;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 
-  animation: floatCorona 3s ease-in-out infinite;
+  /*animation: floatCorona 3s ease-in-out infinite;*/
 }
 
 @keyframes floatCorona {
@@ -63,6 +63,31 @@ body {
 
   100% {
     transform: translateY(0);
+  }
+}
+
+.hero-flecha {
+  width: 55px;
+  height: auto;
+  margin-top: -25px;
+
+  animation: flechaBaja 1.8s ease-in-out infinite;
+}
+
+@keyframes flechaBaja {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  70% {
+    transform: translateY(50px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(35px);
+    opacity: 0;
   }
 }
 
@@ -86,6 +111,20 @@ h1 {
 .date {
   font-size: 1.3rem;
   margin-bottom: 25px;
+}
+
+.info-highlight {
+  font-size: 2.4rem;
+  color: var(--color-accent);
+  margin: 15px 0;
+  letter-spacing: 2px;
+}
+
+.info-special {
+  font-size: 1.3rem !important;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: var(--color-accent);
 }
 
 .btn {
