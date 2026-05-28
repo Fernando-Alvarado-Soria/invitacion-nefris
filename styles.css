@@ -15,13 +15,21 @@
   box-sizing: border-box;
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
   font-family: 'Georgia', serif;
-  background: var(--color-bg);
+  background-image: url("img/background.webp?v=20260528");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
   color: var(--color-text);
   line-height: 1.6;
 }
-
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
@@ -35,7 +43,32 @@ body {
   color: white;
 }
 
+.hero-corona {
+  width: 120px;
+  max-width: 45%;
+  height: auto;
+  margin-bottom: 15px;
+
+  animation: floatCorona 3s ease-in-out infinite;
+}
+
+@keyframes floatCorona {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .hero-content {
+  position: relative;
+  z-index: 2;
   animation: fadeUp 1.5s ease;
 }
 
@@ -75,10 +108,17 @@ h1 {
 }
 
 .section {
+  position: relative;
+  z-index: 2;
+
   padding: 40px 25px;
   text-align: center;
   max-width: 800px;
-  margin: auto;
+  margin: 40px auto;
+
+  /*background: rgba(255, 255, 255, 0.82);*/
+  border-radius: 25px;
+  /*backdrop-filter: blur(4px);*/
 }
 
 .section h2 {
@@ -111,7 +151,7 @@ h1 {
   font-weight: bold;
   color: var(--color-primary);
 }
-}
+
 
 footer {
   text-align: center;

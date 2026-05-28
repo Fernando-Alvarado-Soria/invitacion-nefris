@@ -1,8 +1,17 @@
 // ===== DOM references =====
-const openButton       = document.getElementById("openInvitation");
-const envelopeScreen   = document.getElementById("envelope-screen");
+const openButton        = document.getElementById("openInvitation");
+const envelopeScreen    = document.getElementById("envelope-screen");
 const invitationContent = document.getElementById("invitation-content");
-const scrollBtn        = document.getElementById("scrollBtn");
+const scrollBtn         = document.getElementById("scrollBtn");
+
+// ===== Scroll helpers =====
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+
+if (scrollBtn) {
+  scrollBtn.addEventListener("click", () => scrollToSection("info"));
+}
 
 // ===== Open envelope =====
 openButton.addEventListener("click", () => {
@@ -17,11 +26,6 @@ openButton.addEventListener("click", () => {
   setTimeout(() => {
     envelopeScreen.style.display = "none";
   }, 2500);
-});
-
-// ===== Scroll to info section =====
-scrollBtn.addEventListener("click", () => {
-  document.getElementById("info").scrollIntoView({ behavior: "smooth" });
 });
 
 // ===== Countdown =====
