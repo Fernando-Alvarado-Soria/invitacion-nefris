@@ -166,6 +166,42 @@ h1 {
   color: var(--color-accent);
 }
 
+.section-image {
+    display: block;
+
+    width: 180px;
+    max-width: 70%;
+
+    height: auto;
+
+    margin: 20px auto 25px;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;
+}
+
+.section-image:hover {
+    transform: scale(1.05);
+}
+
+.section-subtitle {
+  margin-top: 10px;
+  margin-bottom: 18px;
+
+  font-size: 2rem;
+  font-weight: 500;
+
+  color: var(--color-primary);
+
+  letter-spacing: 1px;
+}
+
+.section-text {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
 .section p {
   font-size: 1.1rem;
   margin-bottom: 15px;
