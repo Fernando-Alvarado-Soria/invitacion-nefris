@@ -6,6 +6,8 @@
   --color-text:        #4b2e2e;
   --color-bg:          #fff7f3;
   --color-footer-bg:   #ead3cc;
+  --section-space-y:   16px;
+  --section-padding-y: 40px;
 }
 
 /* ===== Reset ===== */
@@ -30,10 +32,20 @@ body {
   color: var(--color-text);
   line-height: 1.6;
 }
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+}
+
 .hero {
   height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-              url('img/cenicientaFondo3.webp?v=20260528')
+  background: 
+              url('img/cenicientaFondo4.webp?v=20260528')
               center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -97,6 +109,26 @@ body {
   animation: fadeUp 1.5s ease;
 }
 
+.hero-content h1,
+.hero-content p {
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000,
+    0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.hero-corona,
+.hero-flecha {
+  filter:
+    drop-shadow(-1px -1px 0 #000)
+    drop-shadow(1px -1px 0 #000)
+    drop-shadow(-1px 1px 0 #000)
+    drop-shadow(1px 1px 0 #000)
+    drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
+}
+
 .subtitle {
   font-size: 1.6rem;
   letter-spacing: 2px;
@@ -120,12 +152,12 @@ h1 {
   letter-spacing: 2px;
 }
 
-.info-special {
+/*.info-special {
   font-size: 1.3rem !important;
   font-weight: bold;
   letter-spacing: 3px;
   color: var(--color-accent);
-}
+}*/
 
 .btn {
   display: inline-block;
@@ -150,10 +182,10 @@ h1 {
   position: relative;
   z-index: 2;
 
-  padding: 40px 25px;
+  padding: var(--section-padding-y) 10px;
   text-align: center;
   max-width: 800px;
-  margin: 40px auto;
+  margin: var(--section-space-y) auto;
 
   /*background: rgba(255, 255, 255, 0.82);*/
   border-radius: 25px;
