@@ -4,6 +4,12 @@ const envelopeScreen    = document.getElementById("envelope-screen");
 const invitationContent = document.getElementById("invitation-content");
 const scrollBtn         = document.getElementById("scrollBtn");
 
+// ===== Music =====
+const invitationMusic = new Audio("music/La%20Valse%20de%20LAmour.mp3");
+invitationMusic.loop = true;
+invitationMusic.preload = "auto";
+let hasOpenedInvitation = false;
+
 // ===== Scroll helpers =====
 function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: "smooth" });
@@ -15,6 +21,13 @@ if (scrollBtn) {
 
 // ===== Open envelope =====
 openButton.addEventListener("click", () => {
+  if (hasOpenedInvitation) return;
+  hasOpenedInvitation = true;
+
+  invitationMusic.play().catch(() => {
+    // If playback fails, continue opening flow without blocking the invitation.
+  });
+
   envelopeScreen.classList.add("open");
 
   setTimeout(() => {
@@ -26,6 +39,11 @@ openButton.addEventListener("click", () => {
   setTimeout(() => {
     envelopeScreen.style.display = "none";
   }, 2500);
+});
+
+window.addEventListener("beforeunload", () => {
+  invitationMusic.pause();
+  invitationMusic.currentTime = 0;
 });
 
 // ===== Countdown =====
