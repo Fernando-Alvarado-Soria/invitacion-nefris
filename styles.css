@@ -33,7 +33,7 @@ body {
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-              url('img/cenicientaFondo.webp?v=20260528')
+              url('img/cenicientaFondo3.webp?v=20260528')
               center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -98,7 +98,7 @@ body {
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   letter-spacing: 2px;
   margin-bottom: 10px;
 }
