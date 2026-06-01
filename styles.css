@@ -44,7 +44,7 @@ h3 {
 
 .hero {
   height: 100vh;
-  background: 
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
               url('img/cenicientaFondo4.webp?v=20260528')
               center/cover no-repeat;
   display: flex;
@@ -109,7 +109,7 @@ h3 {
   animation: fadeUp 1.5s ease;
 }
 
-.hero-content h1,
+/*.hero-content h1,
 .hero-content p {
   text-shadow:
     -1px -1px 0 #000,
@@ -127,7 +127,7 @@ h3 {
     drop-shadow(-1px 1px 0 #000)
     drop-shadow(1px 1px 0 #000)
     drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
-}
+}*/
 
 .subtitle {
   font-size: 1.6rem;
