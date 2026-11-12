@@ -23,11 +23,7 @@ html {
 
 body {
   font-family: 'Georgia', serif;
-  background-image: url("img/background.webp?v=20260528");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-color: #ddecf7;
 
   color: var(--color-text);
   line-height: 1.6;
@@ -197,14 +193,31 @@ h1 {
   position: relative;
   z-index: 2;
 
-  padding: var(--section-padding-y) 10px;
+  width: calc(100% - 80px);
+  padding: var(--section-padding-y) 20px;
   text-align: center;
-  max-width: 800px;
-  margin: var(--section-space-y) auto;
+  max-width: 680px;
+  margin: 20px auto 8px;
 
-  /*background: rgba(255, 255, 255, 0.82);*/
-  border-radius: 25px;
-  /*backdrop-filter: blur(4px);*/
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 0;
+  box-shadow: 0 8px 28px rgba(54, 74, 107, 0.12);
+  backdrop-filter: blur(4px);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: -42px;
+  left: 50%;
+  width: 48px;
+  height: 48px;
+  transform: translateX(-50%);
+  background: url("img/IconosNuevos/corona.png") center / contain no-repeat;
+}
+
+.section--final::before {
+  display: none;
 }
 
 .section h2 {
