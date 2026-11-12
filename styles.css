@@ -43,9 +43,10 @@ h3 {
 }
 
 .hero {
+  position: relative;
   height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-              url('img/cenicientaFondo4.webp?v=20260528')
+              url('imagenesNefris/img1.jpeg?v=20261111')
               center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -56,10 +57,14 @@ h3 {
 }
 
 .hero-corona {
-  width: 500px;
-  max-width: 60%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 380px;
+  max-width: 50%;
   height: auto;
-  margin-bottom: 18px;
+  margin: 0;
+  transform: translateX(-50%);
 
   /*animation: floatCorona 3s ease-in-out infinite;*/
 }
@@ -104,9 +109,8 @@ h3 {
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
-  animation: fadeUp 1.5s ease;
+  position: static;
+  animation: fadeContent 1.5s ease;
 }
 
 /*.hero-content h1,
@@ -130,14 +134,25 @@ h3 {
 }*/
 
 .subtitle {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  width: 100%;
   font-size: 1.6rem;
   letter-spacing: 2px;
-  margin-bottom: 10px;
+  margin: 0;
 }
 
 h1 {
   font-size: 3.5rem;
   margin-bottom: 15px;
+}
+
+.hero-content h1,
+.hero-content .date,
+.hero-content .hero-flecha{
+  position: relative;
+  top: 200px;
 }
 
 .date {
