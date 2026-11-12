@@ -257,6 +257,13 @@ h1 {
     transform: scale(1.05);
 }
 
+.section-image--framed {
+    width: min(100%, 460px);
+    max-width: 100%;
+    margin: 0 auto;
+    filter: none;
+}
+
 .section-subtitle {
   margin-top: 10px;
   margin-bottom: 18px;
