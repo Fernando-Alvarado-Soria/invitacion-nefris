@@ -208,12 +208,18 @@ h1 {
 .section::before {
   content: "";
   position: absolute;
-  top: -42px;
+  top: -54px;
   left: 50%;
-  width: 48px;
-  height: 48px;
+  width: 76px;
+  height: 95px;
   transform: translateX(-50%);
-  background: url("img/IconosNuevos/corona.png") center / contain no-repeat;
+  background: url("img/IconosNuevos/reloj.png") center / contain no-repeat;
+}
+
+#invitation-content > section.section:nth-of-type(odd):not(.section--final)::before {
+  width: 64px;
+  height: 80px;
+  background-image: url("img/IconosNuevos/zapato.png");
 }
 
 .section--final::before {
