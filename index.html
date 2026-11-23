@@ -18,7 +18,7 @@
   <link rel="preload" as="image" href="imagenesNefris/img1.jpeg?v=20261111" type="image/jpeg">
   <link rel="preload" as="image" href="img/corona.webp?v=20260528" type="image/webp">
   <link rel="preload" as="image" href="img/flecha.webp?v=20260528" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=20261122-4" />
+  <link rel="stylesheet" href="styles.css?v=20261122-13" />
 </head>
 <body>
 
@@ -114,7 +114,16 @@
     <p><strong>Hora:</strong> 6:00 p.m.</p>
     <p><strong>Lugar:</strong> Salón Club Vegas <br>(Entre el hospital y el oxxo)</p>
 
-    <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Ver ubicación</a>
+    <iframe
+      class="event-map"
+      src="https://maps.google.com/maps?q=Club%20Vega%27s%2C%20Carretera%20Acapulco-Zihuatanejo%2C%20Bataz%20I%2C%2040976%20Coyuca%20de%20Ben%C3%ADtez%2C%20Guerrero%2C%20Mexico&output=embed"
+      title="Vista previa del mapa de Club Vega’s"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen
+    ></iframe>
+
+    <a class="btn btn-location" href="https://maps.apple/p/JWEpQPZLijT4H7" target="_blank" rel="noopener noreferrer">Ver ubicación</a>
   </section>
 
   <section class="section fade-in">
@@ -145,10 +154,10 @@
       <img
           src="img/IconosNuevos/vestimenta.png?v=20261122"
           alt="Código de vestimenta"
-          class="section-image"
+          class="section-image section-image--dress-code"
       >
 
-      <p>Se reserva el color azul cielo</br>
+      <p>Se reserva el color azul cielo <br>y azul rey</p>
         para la quinceañera.</p>
   </section>
 
@@ -178,7 +187,7 @@
     <h2>Confirma tu asistencia</h2>
     <p>Me encantaría saber si podré contar contigo.</p>
 
-    <button id="rsvpBtn" class="btn">Presiona aquí para confirmar</button>
+    <button id="rsvpBtn" class="btn btn-rsvp">Presiona aquí para confirmar</button>
   </section>
 
   <!-- Modal RSVP -->
@@ -198,7 +207,7 @@
       <p id="rsvp-error" class="rsvp-error hidden">Por favor escribe tu nombre.</p>
       <div class="modal-actions">
         <button id="modal-cancel" class="btn btn--outline">Cancelar</button>
-        <button id="rsvp-confirm" class="btn">Confirmar ✓</button>
+        <button id="rsvp-confirm" class="btn btn-rsvp">Confirmar ✓</button>
       </div>
       <p id="rsvp-success" class="rsvp-success hidden"></p>
     </div>
